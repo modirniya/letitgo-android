@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Letitgo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="joy">Joy</string>
+    <string name="sadness">Sadness</string>
+    <string name="trust">Trust</string>
+    <string name="disgust">Disgust</string>
+    <string name="info1">* Psychologist Robert Plutchik \nstates that there are 8 basic emotions.</string>
+    <string name="info2">Welcome to Let it Go</string>
+    <string name="info3">Before we start, please choose your language</string>
+    <string name="sample_text">Sample Text</string>
+    <string name="zero">0</string>
+    <string name="no_responses_for_today_yet">No responses for today, yet.</string>
+    <string name="offencive_language">Offencive language</string>
+    <string name="spam">Spam</string>
+    <string name="sexually_inappropriate">Sexually inappropriate</string>
+    <string name="violent">Violent</string>
+    <string name="share_your_experience">Share your experience</string>
+    <string name="report">Report</string>
+    <string name="submit">Submit</string>
+
+
+</resources>

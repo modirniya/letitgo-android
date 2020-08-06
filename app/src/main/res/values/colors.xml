@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2c358c</color>
+    <color name="colorPrimaryDark">#474567</color>
+    <color name="colorAccent">#945326</color>
+
+
+    <color name="colorJoy">#FFFF54</color>
+    <color name="colorTrust">#54FF54</color>
+    <color name="colorFear">#009600</color>
+    <color name="colorSurprise">#59BDFF</color>
+    <color name="colorSadness">#5151FF</color>
+    <color name="colorDisgust">#FF54FF</color>
+    <color name="colorAnger">#FF0000</color>
+    <color name="colorAnticipation">#FF7D00</color>
+</resources>

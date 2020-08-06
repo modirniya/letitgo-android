@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".EmotionsFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+
+        <Button
+            android:id="@+id/btJoy"
+            style="@style/TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:text="@string/joy"
+            android:textAllCaps="false"
+            app:icon="@drawable/ic_brightness"
+            app:iconGravity="end"
+            app:iconTint="@color/colorJoy" />
+
+        <Button
+            android:id="@+id/btSadness"
+            style="@style/TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="@string/sadness"
+            android:textAllCaps="false"
+            app:icon="@drawable/ic_brightness"
+            app:iconTint="@color/colorSadness" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <Button
+            android:id="@+id/btTrust"
+            style="@style/TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:text="@string/trust"
+            android:textAllCaps="false"
+            app:icon="@drawable/ic_brightness"
+            app:iconGravity="end"
+            app:iconTint="@color/colorTrust" />
+
+        <Button
+            android:id="@+id/btDisgust"
+            style="@style/TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="@string/disgust"
+            android:textAllCaps="false"
+            app:icon="@drawable/ic_brightness"
+            app:iconTint="@color/colorDisgust" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <Button
+            android:id="@+id/btFear"
+            style="@style/TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:text="Fear"
+            android:textAllCaps="false"
+            app:icon="@drawable/ic_brightness"
+            app:iconGravity="end"
+            app:iconTint="@color/colorFear" />
+
+        <Button
+            android:id="@+id/btAnger"
+            style="@style/TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="Anger"
+            android:textAllCaps="false"
+            app:icon="@drawable/ic_brightness"
+            app:iconTint="@color/colorAnger" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/btSurprise"
+            style="@style/TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:text="Surprise"
+            android:textAllCaps="false"
+            app:icon="@drawable/ic_brightness"
+            app:iconGravity="end"
+            app:iconTint="@color/colorSurprise" />
+
+        <Button
+            android:id="@+id/btAnticipation"
+            style="@style/TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="Anticipation"
+            android:textAllCaps="false"
+            app:icon="@drawable/ic_brightness"
+            app:iconTint="@color/colorAnticipation" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Which emotion you're\nfeeling now?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="@string/info1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

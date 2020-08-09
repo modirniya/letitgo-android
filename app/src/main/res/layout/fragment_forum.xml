@@ -44,7 +44,7 @@
             android:layout_height="0dp"
             android:layout_weight="9" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btCreateEmotion"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -63,9 +63,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+            ads:adUnitId="ca-app-pub-6771897198841555/3781248243"
+            />
 
     </LinearLayout>
 
 
 </FrameLayout>
+    <!--ads:adUnitId="ca-app-pub-3940256099942544/6300978111"-->

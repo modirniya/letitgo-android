@@ -14,7 +14,7 @@
     <string name="zero">0</string>
     <string name="no_responses_for_today_yet">No responses for today, yet.</string>
     <string name="offencive_language">Offencive language</string>
-    <string name="spam">Spam</string>
+    <string name="spam">Spam/irrelevant</string>
     <string name="sexually_inappropriate">Sexually inappropriate</string>
     <string name="violent">Violent</string>
     <string name="share_your_experience">Share your experience</string>

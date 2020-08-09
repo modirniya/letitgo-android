@@ -159,7 +159,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="@string/which_emotion_you_re_nfeeling_now"
+        android:text="@string/info4"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"

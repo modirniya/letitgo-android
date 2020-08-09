@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
-    android:orientation="vertical">
+    android:background="@drawable/container_dark"
+    android:orientation="vertical"
+    android:padding="6dp">
 
     <TextView
         android:id="@+id/tvSender"
@@ -11,7 +13,8 @@
         android:layout_height="wrap_content"
         android:text="@string/sample_text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
 
 
     <TextView
@@ -19,10 +22,7 @@
         android:id="@+id/tvMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/container_dark"
-        android:padding="12dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/sample_text"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/white" />
@@ -38,10 +38,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text="@string/zero"
             android:layout_marginEnd="16dp"
-            android:textColor="@android:color/white"
+            android:text="@string/zero"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/white"
             android:visibility="gone" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -55,7 +55,7 @@
             android:id="@+id/ivLike"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="4dp"
             android:src="@drawable/ic_like" />
 
     </LinearLayout>

@@ -7,6 +7,15 @@
     android:background="@drawable/gradient_bg"
     tools:context=".NewUserActivity">
 
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/legal_age"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/frameSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
     <TextView
         android:id="@+id/txtInfo"
         android:layout_width="wrap_content"
@@ -52,15 +61,23 @@
     </FrameLayout>
 
 
-
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         android:onClick="Submit"
-        android:text="Submit"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        android:text="I agree term"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView4" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="age"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/frameSpinner"
         app:layout_constraintTop_toBottomOf="@+id/frameSpinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

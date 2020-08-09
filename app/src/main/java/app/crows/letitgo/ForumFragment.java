@@ -204,7 +204,7 @@ public class ForumFragment extends Fragment {
                     viewHolder.tvMessage.setVisibility(TextView.VISIBLE);
                     viewHolder.tvLikeCount.setText(String.valueOf(message.getVote_count()));
 
-                    if (message.getId().equals(uId)) {
+                    if (message.getName().equals(uId)) {
                         viewHolder.tvSender.setText("You said:");
                         viewHolder.tvLikeCount.setVisibility(View.VISIBLE);
                         viewHolder.ivReport.setVisibility(View.GONE);
@@ -300,7 +300,7 @@ public class ForumFragment extends Fragment {
                 }
             }
         });
-        Button btCreateEmotion = view.findViewById(R.id.btCreateEmotion);
+        final Button btCreateEmotion = view.findViewById(R.id.btCreateEmotion);
         btCreateEmotion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -343,6 +343,7 @@ public class ForumFragment extends Fragment {
                                     .child(sYear).child(sDate)
                                     .child(uID).setValue(message);*/
                             mDraft = "";
+                            btCreateEmotion.setVisibility(View.GONE);
                         }
                     }
                 });

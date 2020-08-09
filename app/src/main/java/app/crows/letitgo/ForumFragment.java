@@ -37,19 +37,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.functions.FirebaseFunctions;
 import com.google.firebase.functions.HttpsCallableResult;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
-
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ForumFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.Objects;
 
 
 public class ForumFragment extends Fragment {
@@ -60,64 +50,36 @@ public class ForumFragment extends Fragment {
     private String mLastMsgId;
 
     private String mEmotion, mLang, mDraft = "";
-    private String sYear, sDate;
-
-    private static final String TAG = "ForumFragment";
 
     private RecyclerView mMessageRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
     private LinearLayout linearLayLoading;
 
     private FirebaseFunctions mFunctions;
-    private DatabaseReference mFirebaseDatabaseReference;
     private FirebaseRecyclerAdapter<Message, MessageViewHolder>
             mFirebaseAdapter;
-    private Message mLastMessage;
 
     private enum functions {
         newEntry, newLike, newReport
     }
 
     public static class MessageViewHolder extends RecyclerView.ViewHolder {
-        //ImageView messageImageView;
-        private TextView tvSender, tvMessage, tvLikeCount;
+        private TextView tvMessage, tvLikeCount;
         private ImageView ivReport, ivLike;
-        //CircleImageView messengerImageView;
 
 
         public MessageViewHolder(View v) {
             super(v);
             tvMessage = itemView.findViewById(R.id.tvMessage);
-            //messageImageView = itemView.findViewById(R.id.messageImageView);
-            tvSender = itemView.findViewById(R.id.tvSender);
-            //messengerImageView = itemView.findViewById(R.id.messengerImageView);
             ivLike = itemView.findViewById(R.id.ivLike);
             ivReport = itemView.findViewById(R.id.ivReport);
             tvLikeCount = itemView.findViewById(R.id.tvLikeCount);
-
         }
     }
 
 
     public ForumFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param emotion Parameter 1.
-     * @param lang    Parameter 2.
-     * @return A new instance of fragment FroumFragment.
-     */
-    public static ForumFragment newInstance(String emotion, String lang) {
-        ForumFragment fragment = new ForumFragment();
-        Bundle args = new Bundle();
-        args.putString(Emotion, emotion);
-        args.putString(Lang, lang);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
@@ -130,18 +92,10 @@ public class ForumFragment extends Fragment {
 
     }
 
-    private void getDate() {
-        Date date = Calendar.getInstance().getTime();
-        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.getDefault());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM-dd");
-        sYear = yearFormat.format(date);
-        sDate = dateFormat.format(date);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        getDate();
         mFunctions = FirebaseFunctions.getInstance();
         final View view = inflater.inflate(R.layout.fragment_forum, container, false);
         // Inflate the layout for this fragment
@@ -163,14 +117,15 @@ public class ForumFragment extends Fragment {
         mMessageRecyclerView.setLayoutManager(mLinearLayoutManager);
 
         // New child entries
-        mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
         SnapshotParser<Message> parser = new SnapshotParser<Message>() {
+            @NonNull
             @Override
             public Message parseSnapshot(DataSnapshot dataSnapshot) {
                 Message message = dataSnapshot.getValue(Message.class);
                 linearLayLoading.setVisibility(View.GONE);
-                if (message != null)
-                    message.setId(dataSnapshot.getKey());
+                assert message != null;
+                message.setId(dataSnapshot.getKey());
                 return message;
             }
         };
@@ -183,16 +138,17 @@ public class ForumFragment extends Fragment {
 
 
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Message, MessageViewHolder>(options) {
+            @NonNull
             @Override
-            public MessageViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+            public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
                 LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
                 return new MessageViewHolder(inflater.inflate(R.layout.item_message, viewGroup, false));
             }
 
             @Override
-            protected void onBindViewHolder(final MessageViewHolder viewHolder,
+            protected void onBindViewHolder(@NonNull final MessageViewHolder viewHolder,
                                             final int position,
-                                            final Message message) {
+                                            @NonNull final Message message) {
                 final String uId = FirebaseAuth.getInstance().getUid();
                 if (mLastMsgId != null)
                     if (mLastMsgId.equals(message.getId())) {
@@ -205,11 +161,9 @@ public class ForumFragment extends Fragment {
                     viewHolder.tvLikeCount.setText(String.valueOf(message.getVote_count()));
 
                     if (message.getName().equals(uId)) {
-                        viewHolder.tvSender.setText("You said:");
                         viewHolder.tvLikeCount.setVisibility(View.VISIBLE);
                         viewHolder.ivReport.setVisibility(View.GONE);
                     } else {
-                        viewHolder.tvSender.setText(String.format("%s said:", message.getName()));
                         viewHolder.ivLike.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -368,19 +322,17 @@ public class ForumFragment extends Fragment {
         mFirebaseAdapter.startListening();
     }
 
-    private Task<String> callFunctions(String funcName, Map<String, Object> data) {
-        return mFunctions
+    private void callFunctions(String funcName, Map<String, Object> data) {
+        mFunctions
                 .getHttpsCallable(funcName)
                 .call(data)
                 .continueWith(new Continuation<HttpsCallableResult, String>() {
                     @Override
-                    public String then(@NonNull Task<HttpsCallableResult> task) throws Exception {
+                    public String then(@NonNull Task<HttpsCallableResult> task) {
                         // This continuation runs on either success or failure, but if the task
                         // has failed then getResult() will throw an Exception which will be
                         // propagated down.
-                        String result = (String) task.getResult().getData();
-
-                        return result;
+                        return (String) Objects.requireNonNull(task.getResult()).getData();
                     }
                 });
     }

@@ -19,8 +19,13 @@
     <string name="violent">Violent</string>
     <string name="share_your_experience">Share your experience</string>
     <string name="report">Report</string>
+    <string name="fear">Fear</string>
+    <string name="anger">Anger</string>
+    <string name="surprise">Surprise</string>
+    <string name="anticipation">Anticipation</string>
+    <string name="which_emotion_you_re_nfeeling_now">Which emotion you\'re\nfeeling now?</string>
     <string name="submit">Submit</string>
-    <string name="legal_age">I\'m 18 or older</string>
+    <string name="thoughts">Add your thoughts</string>
 
 
 </resources>

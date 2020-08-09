@@ -9,50 +9,16 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link EmotionsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class EmotionsFragment extends Fragment implements View.OnClickListener {
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_EMOTION = "emotion";
-    private static final String ARG_LANG = "lang";
-
-    // TODO: Rename and change types of parameters
-    private String mEmotion, mLang;
-    private Button btJoy, btSadness, btFear, btAnger, btAnticipation, btSurprise, btDisgust, btTrust;
 
     public EmotionsFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param emotion Parameter 1.
-     * @param lang Parameter 2.
-     * @return A new instance of fragment EmotionsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static EmotionsFragment newInstance(String emotion, String lang) {
-        EmotionsFragment fragment = new EmotionsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_EMOTION, emotion);
-        args.putString(ARG_LANG, lang);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mEmotion = getArguments().getString(ARG_EMOTION);
-            mLang = getArguments().getString(ARG_LANG);
-        }
     }
 
     @Override
@@ -65,28 +31,28 @@ public class EmotionsFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initialize(View parent) {
-        btJoy = parent.findViewById(R.id.btJoy);
+        Button btJoy = parent.findViewById(R.id.btJoy);
         btJoy.setOnClickListener(this);
 
-        btSadness = parent.findViewById(R.id.btSadness);
+        Button btSadness = parent.findViewById(R.id.btSadness);
         btSadness.setOnClickListener(this);
 
-        btAnger = parent.findViewById(R.id.btAnger);
+        Button btAnger = parent.findViewById(R.id.btAnger);
         btAnger.setOnClickListener(this);
 
-        btFear = parent.findViewById(R.id.btFear);
+        Button btFear = parent.findViewById(R.id.btFear);
         btFear.setOnClickListener(this);
 
-        btDisgust = parent.findViewById(R.id.btDisgust);
+        Button btDisgust = parent.findViewById(R.id.btDisgust);
         btDisgust.setOnClickListener(this);
 
-        btTrust = parent.findViewById(R.id.btTrust);
+        Button btTrust = parent.findViewById(R.id.btTrust);
         btTrust.setOnClickListener(this);
 
-        btSurprise = parent.findViewById(R.id.btSurprise);
+        Button btSurprise = parent.findViewById(R.id.btSurprise);
         btSurprise.setOnClickListener(this);
 
-        btAnticipation = parent.findViewById(R.id.btAnticipation);
+        Button btAnticipation = parent.findViewById(R.id.btAnticipation);
         btAnticipation.setOnClickListener(this);
     }
 
@@ -120,6 +86,7 @@ public class EmotionsFragment extends Fragment implements View.OnClickListener {
                 code = 8;
                 break;
         }
+        assert mainActivity != null;
         mainActivity.onUserAction(code);
 
     }
